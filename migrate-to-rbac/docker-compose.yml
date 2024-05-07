@@ -1,0 +1,17 @@
+---
+services:
+
+  openldap:
+    image: osixia/openldap:1.3.0
+    hostname: openldap
+    ports:
+      - 389:389
+    container_name: openldap
+    environment:
+        LDAP_ORGANISATION: "ConfluentDemo"
+        LDAP_DOMAIN: "confluentdemo.io"
+        LDAP_BASE_DN: "dc=confluentdemo,dc=io"
+    volumes:
+        - ./scripts/security/ldap_users:/container/service/slapd/assets/config/bootstrap/ldif/custom
+    command: "--copy-service --loglevel debug"
+
