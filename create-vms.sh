@@ -1,6 +1,6 @@
 for vm in benedikt-kafka1 benedikt-kafka2 benedikt-kafka3 benedikt-kafka4 benedikt-kafka5 benedikt-kafka6; do
   gcloud compute instances create $vm \
-    --project=solutionsarchitect-01 \
+    --project=$GCP_PROJECT \
     --zone=us-central1-a \
     --machine-type=e2-medium \
     --network-interface=network-tier=PREMIUM,stack-type=IPV4_ONLY,subnet=default \
